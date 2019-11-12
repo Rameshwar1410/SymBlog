@@ -7,6 +7,7 @@ Add gmail:password in .env file
 
 Now ready to use Symfony Blog project
 
+
 To run project fire below command
 php bin/console serve:run
 
