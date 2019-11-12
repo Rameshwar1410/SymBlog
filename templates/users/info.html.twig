@@ -1,0 +1,49 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Users{% endblock %}
+
+{% block body %}
+     <!-- Page Heading -->
+          <div class="d-sm-flex align-items-center justify-content-between mb-4">
+            <h1 class="h3 mb-0 text-gray-800">Users Profile</h1>
+            
+          </div>
+
+    <!-- Content Row -->
+    <div class="row">
+      <div class="col-md-12">
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ userData.id }}</td>
+            </tr>
+            <tr>
+                <th>FirstName</th>
+                <td>{{ userData.firstName }}</td>
+            </tr>
+            <tr>
+                <th>LastName</th>
+                <td>{{ userData.lastName }}</td>
+            </tr>
+            <tr>
+                <th>Email</th>
+                <td>{{ userData.email }}</td>
+            </tr>
+            <tr>
+                <th>User Name</th>
+                <td>{{ userData.userName }}</td>
+            </tr>
+            <tr>
+                <th>Image</th>
+                <td><img class="img-profile rounded-circle" src="{{ asset('Profile_images/') }}{{userData.image}}" style="width: 80px;"></td>
+            </tr>
+        </tbody>
+    </table>
+    <br><br>
+    
+    </div>
+    </div>
+   
+{% endblock %}

@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello CommentController!
+{% endblock %}
+
+{% block body %}
+    <!-- Page Heading -->
+    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+        <h1 class="h3 mb-0 text-gray-800"></h1>
+        <a href="{{ path('post.show', {'id' : comment.post.id}) }}" class="btn btn-info ">
+            <i class="fa fa-arrow-left"></i>
+        </a>
+
+    </div>
+
+    <!-- Content Row -->
+    <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-8 card my-4">
+            <h5 class="card-header">Edit a Comment:</h5>
+            <div class="card-body">
+
+                {{ form_start(form) }}
+                {{ form(form) }}
+                {{ form_end(form) }}
+            </div>
+        </div>
+    </div>
+    {% endblock %}

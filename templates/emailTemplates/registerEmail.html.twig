@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  </head>
+  <body class="bg-light">
+    <div class="container">
+      <div class="card mb-4" style="border-top: 5px solid #ff00bf;">
+        <div class="card-body">
+          <h4 class="text-center">
+            <strong>Hello
+              {{ name }},</strong>
+          </h4>
+          <h4 class="text-center">Thanks for Registering at Symfony Blog !</h4>
+          <h4 class="text-center">Please Login</h4>
+          <a class="btn btn-primary btn-lg mx-auto mt-2" href="{{ url('app.login') }}">Login</a>
+          <hr/>
+        </div>
+      </div>
+      <div class="text-center text-muted">
+        <h4 class="text-center">Thanks</h4>
+      </div>
+      <div class="text-center text-muted">
+        <h4 class="text-center">Symfony Blog</h4>
+      </div>
+    </div>
+  </body>
+</html>

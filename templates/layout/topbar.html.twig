@@ -1,0 +1,223 @@
+<!-- Topbar -->
+<nav
+    class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+
+    <!-- Sidebar Toggle (Topbar) -->
+    <button class="btn btn-link d-md-none rounded-circle mr-3" id="sidebarToggleTop">
+        <i class="fa fa-bars"></i>
+    </button>
+    {% if is_granted('ROLE_ADMIN') %}
+    {% else %}
+        <!-- Topbar Search -->
+        <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+            <div class="input-group">
+                <h4>
+                    <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{{path('all.users.post')}}">
+                        <div class="sidebar-brand-icon rotate-n-15">
+                            <i class="fas fa-laugh-wink"></i>
+                        </div>
+                        <div class="sidebar-brand-text mx-3">Blog</div>
+                    </a>
+                </h4>
+            </div>
+        </form>
+    {% endif %}
+    <!-- Topbar Navbar -->
+    <ul class="navbar-nav ml-auto">
+        {% if app.user %}
+            <!-- Nav Item - Search Dropdown (Visible Only XS) -->
+            <li class="nav-item dropdown no-arrow d-sm-none">
+                <a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" id="searchDropdown" role="button">
+                    <i class="fas fa-search fa-fw"></i>
+                </a>
+                <!-- Dropdown - Messages -->
+                <div aria-labelledby="searchDropdown" class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in">
+                    <form class="form-inline mr-auto w-100 navbar-search">
+                        <div class="input-group">
+                            <input aria-describedby="basic-addon2" aria-label="Search" class="form-control bg-light border-0 small" placeholder="Search for..." type="text">
+                            <div class="input-group-append">
+                                <button class="btn btn-primary" type="button">
+                                    <i class="fas fa-search fa-sm"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </li>
+
+            <!-- Nav Item - Alerts -->
+            <li class="nav-item dropdown no-arrow mx-1">
+                <a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" id="alertsDropdown" role="button">
+                    <i class="fas fa-bell fa-fw"></i>
+                    <!-- Counter - Alerts -->
+                    <span class="badge badge-danger badge-counter">3+</span>
+                </a>
+                <!-- Dropdown - Alerts -->
+                <div aria-labelledby="alertsDropdown" class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in">
+                    <h6 class="dropdown-header">
+                        Alerts Center
+                    </h6>
+                    <a class="dropdown-item d-flex align-items-center" href="#">
+                        <div class="mr-3">
+                            <div class="icon-circle bg-primary">
+                                <i class="fas fa-file-alt text-white"></i>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="small text-gray-500">December 12, 2019</div>
+                            <span class="font-weight-bold">A new monthly report is ready to download!</span>
+                        </div>
+                    </a>
+                    <a class="dropdown-item d-flex align-items-center" href="#">
+                        <div class="mr-3">
+                            <div class="icon-circle bg-success">
+                                <i class="fas fa-donate text-white"></i>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="small text-gray-500">December 7, 2019</div>
+                            $290.29 has been deposited into your account!
+                        </div>
+                    </a>
+                    <a class="dropdown-item d-flex align-items-center" href="#">
+                        <div class="mr-3">
+                            <div class="icon-circle bg-warning">
+                                <i class="fas fa-exclamation-triangle text-white"></i>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="small text-gray-500">December 2, 2019</div>
+                            Spending Alert: We've noticed unusually high spending for your account.
+                        </div>
+                    </a>
+                    <a class="dropdown-item text-center small text-gray-500" href="#">Show All Alerts</a>
+                </div>
+            </li>
+
+            <!-- Nav Item - Messages -->
+            <li class="nav-item dropdown no-arrow mx-1">
+                <a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" id="messagesDropdown" role="button">
+                    <i class="fas fa-envelope fa-fw"></i>
+                    <!-- Counter - Messages -->
+                    <span class="badge badge-danger badge-counter">7</span>
+                </a>
+                <!-- Dropdown - Messages -->
+                <div aria-labelledby="messagesDropdown" class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in">
+                    <h6 class="dropdown-header">
+                        Message Center
+                    </h6>
+                    <a class="dropdown-item d-flex align-items-center" href="#">
+                        <div class="dropdown-list-image mr-3">
+                            <img alt="" class="rounded-circle" src="https://source.unsplash.com/fn_BT9fwg_E/60x60">
+                            <div class="status-indicator bg-success"></div>
+                        </div>
+                        <div class="font-weight-bold">
+                            <div class="text-tpluginsruncate">Hi there! I am wondering if you can help me with a problem I've been having.</div>
+                            <div class="small text-gray-500">Emily Fowler · 58m</div>
+                        </div>
+                    </a>
+                    <a class="dropdown-item d-flex align-items-center" href="#">
+                        <div class="dropdown-list-image mr-3">
+                            <img alt="" class="rounded-circle" src="https://source.unsplash.com/AU4VPcFN4LE/60x60">
+                            <div class="status-indicator"></div>
+                        </div>
+                        <div>
+                            <div class="text-truncate">I have the photos that you ordered last month, how would you like them sent to you?</div>
+                            <div class="small text-gray-500">Jae Chun · 1d</div>
+                        </div>
+                    </a>
+                    <a class="dropdown-item d-flex align-items-center" href="#">
+                        <div class="dropdown-list-image mr-3">
+                            <img alt="" class="rounded-circle" src="https://source.unsplash.com/CS2uCrpNzJY/60x60">
+                            <div class="status-indicator bg-warning"></div>
+                        </div>
+                        <div>
+                            <div class="text-truncate">Last month's report looks great, I am very happy with the progress so far, keep up the good work!</div>
+                            <script src="https://cdn.datatables.net/v/bs4/dt-1.10.18/datatables.min.js" type="text/javascript"></script>
+                        </div>
+                        <script src="https://cdn.datatables.net/v/bs4/dt-1.10.18/datatables.min.js" type="text/javascript"></script>
+                    </a>
+                    <a class="dropdown-item d-flex align-items-center" href="#">
+                        <div class="dropdown-list-image mr-3">
+                            <img alt="" class="rounded-circle" src="https://source.unsplash.com/Mv9hjnEUHR4/60x60">
+                            <div class="status-indicator bg-success"></div>
+                        </div>
+                        <div>
+                            <div class="text-truncate">Am I a good boy? The reason I ask is because someone told me that people say this to all dogs, even if they aren't good...</div>
+                            <div class="small text-gray-500">Chicken the Dog · 2w</div>
+                        </div>
+                    </a>
+                    <a class="dropdown-item text-center small text-gray-500" href="#">Read More Messages</a>
+                </div>
+            </li>
+            <!-- Nav Item - Post -->
+            <li class="nav-item dropdown no-arrow mx-1">
+                <a class="nav-link dropdown-toggle" href="{{ path('post.new') }}" id="messagesDropdown" aria-haspopup="true" aria-expanded="false">
+                    <i class="fas fa-blog">
+                        Post</i>
+                </a>
+
+            </li>
+        {% endif %}
+
+        <div class="topbar-divider d-none d-sm-block"></div>
+        {% if app.user %}
+            <!-- Nav Item - User Information -->
+            <li class="nav-item dropdown no-arrow">
+                <a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" id="userDropdown" role="button">
+                    <span class="mr-2 d-none d-lg-inline text-gray-600 small">Hi
+                        {{app.user.firstName|title}}</span>
+                    <img class="img-profile rounded-circle" src="{{ asset('Profile_images/') }}{{app.user.image}}">
+                </a>
+                <!-- Dropdown - User Information -->
+                <div aria-labelledby="userDropdown" class="dropdown-menu dropdown-menu-right shadow animated--grow-in">
+                    <a class="dropdown-item" href="{{ path('user.profile', {'id': app.user.id}) }}">
+                        <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
+                        Profile
+                    </a>
+                    <a class="dropdown-item" href="{{ path('user.profile.edit', {'id': app.user.id}) }}">
+                        <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
+                        Profile Edit
+                    </a>
+                    <a class="dropdown-item" href="{{ path('post.list') }}">
+                        <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
+                        Post Activity Log
+                    </a>
+                    <a class="dropdown-item" href="{{ path('reset.password') }}">
+                        <i class="fas fa-key fa-sm fa-fw mr-2 text-gray-400"></i>
+                        Password Reset
+                    </a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="{{ path('app.logout') }}">
+                        <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                        Logout
+                    </a>
+                </div>
+            </li>
+        {% else %}
+            <!-- Nav Item - User Information -->
+            <li class="nav-item dropdown no-arrow">
+                <a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" id="userDropdown" role="button">
+                    <span class="mr-2 d-none d-lg-inline text-gray-600 small">
+                        <i class="fas fa-list"></i>
+                    </span>
+                </a>
+                <!-- Dropdown - User Information -->
+                <div aria-labelledby="userDropdown" class="dropdown-menu dropdown-menu-right shadow animated--grow-in">
+                    <a class="dropdown-item" href="{{ path('registration') }}">
+                        <i class="fas fa-user-plus fa-sm fa-fw mr-2 text-gray-400"></i>
+                        Sign up
+                    </a>
+
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="{{ path('app.login') }}">
+                        <i class="fas fa-sign-in-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                        Login
+                    </a>
+                </div>
+            </li>
+        {% endif %}
+    </ul>
+
+</nav>
+<!-- End of Topbar -->

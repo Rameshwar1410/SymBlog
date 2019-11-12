@@ -1,0 +1,77 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Users{% endblock %}
+
+{% block body %}
+     <!-- Page Heading -->
+          <div class="d-sm-flex align-items-center justify-content-between mb-4">
+            <h1 class="h3 mb-0 text-gray-800">Update User Info</h1>
+            <a href="{{ path('user.list') }}" class="btn btn-info "><i class="fa fa-arrow-left"></i></a>
+            
+          </div>
+
+    <!-- Content Row -->
+    <div class="row">
+      
+      <div class="col-md-1  ">
+      </div>
+      <div class="col-md-6">
+
+    {{ form_start(form) }}
+    <div id="users_form">
+        <div>
+            
+            {{ form_row(form.firstName) }}
+        </div>
+    </div>
+    <br>
+    <div id="users_form">
+        <div>
+            
+            {{ form_row(form.lastName) }}
+        </div>
+    </div>
+    <br>
+    <div id="users_form">
+        <div>
+            
+            {{ form_row(form.userName) }}
+        </div>
+    </div>
+    <br>
+    <div id="users_form">
+        <div>
+            
+            {{ form_row(form.email) }}
+        </div>
+    </div>
+    </br>
+    <div id="users_form">
+        <div>
+            
+            {{ form_row(form.roles) }}
+        </div>
+    </div>
+    </br>
+    <div id="users_form">
+      <div class="row">
+        <div class="col-md-4">
+          {{ form_row(form.image) }}
+        </div>
+        <div class="col-md-4">
+          <img class="img-profile rounded-circle" src="{{ asset('Profile_images/') }}{{user.image}}" style="width: 80px;">   
+        </div>
+      </div>
+    </div>
+    <br>
+    <button class="btn btn-info">{{ button_label|default('Update') }}</button>
+{{ form_end(form) }}
+  
+   <br>
+
+    {{ include('users/_delete_form.html.twig') }}
+    </div>
+    
+    </div>
+    
+{% endblock %}

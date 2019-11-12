@@ -1,0 +1,92 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Post
+{% endblock %}
+
+{% block body %}
+    <!-- Page Heading -->
+    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+
+        {% if app.user and (app.user.id == post.id or is_granted('ROLE_ADMIN')) %}
+
+            <a href="{{ path('post.edit', {'id': post.id}) }}" class="fas fa-edit btn btn-danger"></a>
+        {% endif %}
+        <h1 class="h3 mb-0 text-gray-800"></h1>
+        <a href="{{ path('all.users.post') }}" class="btn btn-info ">
+            <i class="fa fa-arrow-left"></i>
+        </a>
+    </div>
+
+
+    <div class="row mb-2">
+        <main class="container" role="main">
+            <div class="row">
+                <div class="col-md-12 blog-main">
+                    <h3 class="pb-3 mb-4 font-italic border-bottom">
+                        Symfony Blog
+                    </h3>
+                    <div class="blog-post">
+                        <h2 class="blog-post-title">{{ post.title }}</h2>
+                        <p class="blog-post-meta">{{ post.created|date('M d, Y') }}
+                            by
+                            <a href="{{ path('user.profile',{'id': post.postedBy.id})}}">{{ post.postedBy.userName }}</a>
+                        </p>
+                        {{ post.comment | raw }}
+
+                    </div>
+                    <!-- /.blog-post -->
+                    <hr>
+                    {% if app.user %}
+
+                        <div class="col-md-8 card my-4">
+                            <h5 class="card-header">Leave a Comment:</h5>
+                            <div class="card-body">
+                                <form action="{{path('comment.add')}}" method="POST">
+                                    <div class="form-group">
+                                        <textarea class="form-control" name="comment" required rows="3"></textarea>
+                                        <input type="hidden" name="post_id" value="{{ post.id }}">
+                                    </div>
+                                    <button class="btn btn-primary" type="submit">Submit</button>
+                                </form>
+                            </div>
+                        </div>
+                        <hr>
+                    {% endif %}
+
+                    <h5 class="card-header">Comments:</h5>
+                    {% for comment in comments %}
+
+                        <div class="media mb-4 card-body">
+                            <img alt="" class="d-flex mr-3 rounded-circle" style="width: 50px;" src="{{ asset('Profile_images/') }}{{comment.user.image}}">
+                            <div class="media-body">
+                                <h5 class="mt-0 text text-info"><a href="{{ path('user.profile',{'id': comment.user.id})}}">{{ comment.user.userName }}</a></h5>
+                                <p class="text text-default" style="font-size:15px">
+                                    {{ comment.comment }}
+                                </p>
+                                <p class="blog-post-meta text text-danger" style="font-size:12px">{{ comment.created|date('M d, Y h:s:i') }}
+                                    {% if app.user and (app.user.id == comment.user.id or is_granted('ROLE_ADMIN')) %}
+
+                                        <br><br>
+                                        <div style="display: inline-flex;">
+                                            <a href="{{ path('comment.edit', {'id': comment.id}) }}" class="fas fa-edit btn btn-info btn-sm"></a>
+                                            &nbsp; &nbsp;
+                                            <form method="post" action="{{ path('comment.delete', {'id': comment.id}) }}" onsubmit="return confirm('Are you sure you want to delete this item?');">
+                                                <input name="_method" type="hidden" value="DELETE">
+                                                <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ comment.id) }}">
+                                                <button class="fa fa-trash-alt btn btn-danger btn-sm"></button>
+                                            </form>
+                                        </div>
+                                    {% endif %}
+                                </p>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </main>
+        <!-- /.blog-main -->
+    </div>
+    <!-- /.row -->
+
+
+{% endblock %}
