@@ -1,7 +1,6 @@
 # SymfonyTrainigProject
 
-### Create symfonyblog DB 
-
+- Create symfonyblog DB 
 - Import sql file to symfonyblog. File path (db/SymfonyBlog.sql)
 - Add mysql user:password in .env file
 - Add gmail:password in .env file
